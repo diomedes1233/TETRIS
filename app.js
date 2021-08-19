@@ -4,6 +4,8 @@ var tablero //matriz con el tablero
 var pieza = 0 //pieza
 var record = 0 //almacena la mejor puntuación
 var lineas = 0 //almacena la  puntuación actual
+const botones = document.querySelectorAll('button')
+console.log(botones)
 var pos = [
   //Valores referencia de coordenadas relativas
   [0, 0],
@@ -25,13 +27,25 @@ var piezas = [
   [2, 0, 3, 5, 4],
   [1, 0, 5, 6, 3],
 ]
+
+botones.forEach((boton) => {
+  boton.addEventListener('click', () => {
+    if (botones[0] === boton) {
+      velocidad = 70000
+    } else if (botones[1] === boton) {
+      velocidad = 50000
+    } else {
+      velocidad = 10000
+    }
+  })
+})
+
 //Genera una nueva partida inicializando las variables
 function nuevaPartida() {
-  velocidad = 50000
-  tablero = new Array(20)
-  for (var n = 0; n < 20; n++) {
-    tablero[n] = new Array(9)
-    for (var m = 0; m < 9; m++) {
+  tablero = new Array(16)
+  for (var n = 0; n < 16; n++) {
+    tablero[n] = new Array(10)
+    for (var m = 0; m < 10; m++) {
       tablero[n][m] = 0
     }
   }
@@ -41,7 +55,7 @@ function nuevaPartida() {
 //Detecta si una fila columna del tablero está libre para ser ocupada
 function cuadroNoDisponible(f, c) {
   if (f < 0) return false
-  return c < 0 || c >= 9 || f >= 20 || tablero[f][c] > 0
+  return c < 0 || c >= 10 || f >= 16 || tablero[f][c] > 0
 }
 //Detecta si la pieza activa colisiona fuera del tablero o con otra pieza
 function colisionaPieza() {
@@ -56,16 +70,16 @@ function colisionaPieza() {
 }
 //Detecta si hay lineas completas y si las hay las computa y borra la linea desplazando la submatriz superior
 function detectarLineas() {
-  for (var f = 0; f < 20; f++) {
+  for (var f = 0; f < 16; f++) {
     var contarCuadros = 0
-    for (var c = 0; c < 9; c++) {
+    for (var c = 0; c < 10; c++) {
       if (tablero[f][c] > 0) {
         contarCuadros++
       }
     }
-    if (contarCuadros == 9) {
+    if (contarCuadros == 10) {
       for (var f2 = f; f2 > 0; f2--) {
-        for (var c2 = 0; c2 < 9; c2++) {
+        for (var c2 = 0; c2 < 10; c2++) {
           tablero[f2][c2] = tablero[f2 - 1][c2]
         }
       }
@@ -83,9 +97,9 @@ function bajarPieza() {
       var pos2 = rotarCasilla(pos[des])
       if (
         pos2[0] + fpi >= 0 &&
-        pos2[0] + fpi < 20 &&
+        pos2[0] + fpi < 16 &&
         pos2[1] + cpi >= 0 &&
-        pos2[1] + cpi < 9
+        pos2[1] + cpi < 10
       ) {
         tablero[pos2[0] + fpi][pos2[1] + cpi] = pieza + 1
       }
@@ -93,7 +107,7 @@ function bajarPieza() {
     detectarLineas()
     //Si hay algun cuadro en la fila 0 reinicia el juego
     var reiniciar = 0
-    for (var c = 0; c < 9; c++) {
+    for (var c = 0; c < 10; c++) {
       if (tablero[0][c] != 0) {
         reiniciar = 1
       }
@@ -157,9 +171,9 @@ function pintar() {
   var lt = ' <'
   var des
   var html = "<table class='tetris'>"
-  for (var f = 0; f < 20; f++) {
+  for (var f = 0; f < 16; f++) {
     html += '<tr>'
-    for (var c = 0; c < 9; c++) {
+    for (var c = 0; c < 10; c++) {
       var color = tablero[f][c]
       if (color == 0) {
         for (v = 1; v < 5; v++) {
