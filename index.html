@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="stiles.css" />
-        <title>Document</title>
-    </head>
 
-    <body onload="eventoCargar()" onkeydown="tecla(event)">
-        <h1>vsddsvsd</h1>
-        <div class="container">
-            <div id="tetris"></div>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stiles.css" />
+    <title>Document</title>
+</head>
 
-            <div class="botones">
-                <button>FACIL</button>
-                <button>NORMAL</button>
-                <button>DIFICIL</button>
-                <button>Iniciar</button>
-            </div>
+<body onload="eventoCargar()" onkeydown="tecla(event)">
+    <div class="titulo">
+        <h1>TETRIS</h1>
+    </div>
+    <div class="container">
+        <div id="tetris"></div>
+
+        <div class="botones">
+            <button class="b1">FACIL</button>
+            <button class="b2">NORMAL</button>
+            <button class="b3">DIFICIL</button>
+            <button class="b4">Iniciar</button>
         </div>
-        <canvas id="myCanvas" width="480" height="320"></canvas>
-        <script src="app.js"></script>
-    </body>
+    </div>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <script src="app.js"></script>
+</body>
+
 </html>
