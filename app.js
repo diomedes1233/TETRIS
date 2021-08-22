@@ -1,7 +1,7 @@
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
-ctx.fillStyle = "red";
-ctx.fillRect(50, 30, 150, 150);
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+context.strokeStyle = "#d30f0e";
+context.strokeRect(0, 0, 390, 630);
 
 var velocidad = 50000; //velocidad del juego
 var fpi, cpi, rot; //fila, columna y rotación de la ficha
