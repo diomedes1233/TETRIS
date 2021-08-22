@@ -11,6 +11,13 @@ body {
   align-items: center;
 }
 
+#canvas {
+  border: solid 0.2em #fff;
+  z-index: -100;
+  background-color: rgb(0, 255, 85);
+  position: absolute;
+}
+
 .container {
   padding: 20px;
   display: flex;
