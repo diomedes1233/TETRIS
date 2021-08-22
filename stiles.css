@@ -117,23 +117,23 @@ br {
   border-radius: 30%;
 }
 .celda1 {
-  background-color: #0000ff;
+  background-color: #0000ff; /* T */
 }
 .celda2 {
-  background-color: #ff0000;
+  background-color: #ff0000; /* L */
 }
 .celda3 {
-  background-color: #00ff00;
+  background-color: #00ff00; /* L < */
 }
 .celda4 {
-  background-color: #ffff00;
+  background-color: #ffff00; /* LINE */
 }
 .celda5 {
-  background-color: #00ffff;
+  background-color: #00ffff; /* Z */
 }
 .celda6 {
-  background-color: #ff00ff;
+  background-color: #ff00ff; /* Z */
 }
 .celda7 {
-  background-color: #d8700e;
+  background-color: #d8700e; /* SQUARE */
 }
